@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Site</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="terminal">
+        <!-- header -->
+        <header class="terminal__header">
+          <a href="index.html" class="terminal__title">Ikhsan's Notes</a>
+          <div></div>
+          <div class="terminal__tool">O</div>
+        </header>
+        <!-- site description -->
+        <div class="terminal__description">
+          Blog pribadi tentang pemrograman, proyek, kuliah, Linux, dan hal-hal
+          yang sedang saya pelajari.
+        </div>
+
+        <!-- body -->
+        <main class="terminal__body">
+          <div class="terminal__posts">
+            <!-- post lists -->
+            <a href="post.html" class="post__item">
+              <div class="post__title">Jenis-jenis jaringan komputer</div>
+              <div class="post__description">Penjelasan tentang LAN, MAN, WAN, dan Internet </div>
+            </a>
+            <div class="post__item">
+              <div class="post__title">2</div>
+              <div class="post__description">2</div>
+            </div>
+            <div class="post__item">
+              <div class="post__title">3</div>
+              <div class="post__description">3</div>
+            </div>
+            <div class="post__item">
+              <div class="post__title">4</div>
+              <div class="post__description">4</div>
+            </div>
+            
+          </div>
+        </main>
+      </div>
+      
+    </div>
+
+    <script>
+      const grid = document.querySelector(".terminal__posts");
+      const posts = [...grid.querySelectorAll(".post__item:not(.post--empty)")];
+
+      function fillGrid() {
+        grid.querySelectorAll(".post--empty").forEach(el => el.remove());
+
+        const width = window.innerWidth;
+
+        let columns;
+
+        if (width >= 1200) {
+          columns = 5;
+        } else if (width >= 768) {
+          columns = 3;
+        } else if (width >= 480) {
+          columns = 2;
+        } else {
+          columns = 1;
+        }
+
+        const remainder = posts.length % columns;
+
+        if (remainder !== 0) {
+          const emptyCount = columns - remainder;
+
+          for (let i = 0; i < emptyCount; i++) {
+            const empty = document.createElement("div");
+            empty.className = "post__item post--empty";
+            grid.appendChild(empty);
+          }
+        }
+      }
+
+      fillGrid();
+      window.addEventListener("resize", fillGrid);
+    </script>
+  </body>
+</html>
