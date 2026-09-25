@@ -139,7 +139,7 @@ a {
    ========================= */
 
 .terminal__header {
-  padding: 8px 16px;
+  /* padding: 8px 16px; */
 
   border-bottom: var(--border-size) var(--border-style) var(--lavender);
 
@@ -151,18 +151,23 @@ a {
 }
 
 .terminal__title {
+  padding: 8px 16px;
   font-size: var(--text-lg);
   font-weight: bold;
   text-decoration: none;
   display: flex;
   align-items: center;
   color: var(--lavender);
+  border-right: var(--border-size) var(--border-style) var(--lavender);
 }
 
-.terminal__logo {
-  width: auto;
-  height: 30px;
-  margin-right: 8px;
+.terminal__title:hover {
+  color: var(--base);
+  background-color: var(--lavender);
+}
+
+.terminal__tools {
+  padding: 8px 16px;
 }
 
 /* =========================
@@ -170,12 +175,37 @@ a {
    ========================= */
 
 .terminal__description {
-  padding: 8px;
+  padding: 12px 48px;
 
   border-bottom: var(--border-size) var(--border-style) var(--lavender);
 
+  color: var(--lavender);
+
+  display: flex;
+  align-items: center;
+}
+
+.terminal__description-logo {
+  width: auto;
+  height: 156px;
+  margin-right: 48px;
+  /* color: var(--lavender); */
+}
+
+.terminal__description-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal__description-title {
+  font-size: var(--text-4xl);
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.terminal__description-subtitle {
   font-size: var(--text-sm);
-  color: var(--subtext-1);
+  color: var(--subtext-0);
 }
 
 /* =========================
@@ -204,7 +234,7 @@ a {
 }
 
 .terminal--aside .terminal__header {
-  padding: 8px 12px;
+  /* padding: 8px 12px; */
 }
 
 .terminal--aside .terminal__title {
