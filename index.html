@@ -153,6 +153,9 @@
       </div>
     </div>
 
+    <div class="mouse-guide mouse-guide--horizontal"></div>
+    <div class="mouse-guide mouse-guide--vertical"></div>
+
     <script>
       const grid = document.querySelector(".terminal__posts");
       const posts = [...grid.querySelectorAll(".post__item:not(.post--empty)")];
@@ -189,6 +192,19 @@
 
       fillGrid();
       window.addEventListener("resize", fillGrid);
+    </script>
+
+    <script>
+      const horizontalGuide = document.querySelector(
+        ".mouse-guide--horizontal",
+      );
+
+      const verticalGuide = document.querySelector(".mouse-guide--vertical");
+
+      window.addEventListener("mousemove", (event) => {
+        horizontalGuide.style.top = `${event.clientY}px`;
+        verticalGuide.style.left = `${event.clientX}px`;
+      });
     </script>
   </body>
 </html>
