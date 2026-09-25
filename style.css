@@ -268,7 +268,7 @@ a {
   color: var(--lavender);
 
   text-decoration: none;
-  padding: 12px;
+  padding: 24px;
 
   cursor: pointer;
 }
@@ -416,11 +416,11 @@ td {
 }
 
 /* Large desktop: 5 columns */
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) {
   .terminal__posts {
     grid-template-columns: repeat(5, 1fr);
   }
-}
+} */
 
 /* =========================
    Mobile Layout

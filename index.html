@@ -40,10 +40,7 @@
             <div class="terminal__tool">O</div>
           </header>
           <!-- site description -->
-          <div
-            class="terminal__description text-scramble"
-            data-scramble-speed="15"
-          >
+          <div class="terminal__description">
             Blog pribadi tentang pemrograman, proyek, kuliah, Linux, dan hal-hal
             yang sedang saya pelajari.
           </div>
@@ -52,14 +49,10 @@
             <div class="terminal__posts">
               <!-- post lists -->
               <a href="post.html" class="post__item">
-                <div class="post__title text-scramble" data-scramble-speed="50">
-                  Jenis-jenis jaringan komputer
-                </div>
-                <div
-                  class="post__description text-scramble"
-                  data-scramble-speed="25"
-                >
-                  Penjelasan tentang LAN, MAN, WAN, dan Internet
+                <div class="post__title">Jenis-jenis jaringan komputer</div>
+                <div class="post__description">
+                  Pengertian jaringan komputer, jenis-jenis jaringan komputer,
+                  dan topologi jaringan komputer.
                 </div>
               </a>
               <div class="post__item">
@@ -71,8 +64,8 @@
                 <div class="post__description">3</div>
               </div>
               <div class="post__item">
-                <div class="post__title">4</div>
-                <div class="post__description">4</div>
+                <div class="post__title">3</div>
+                <div class="post__description">3</div>
               </div>
             </div>
           </main>
@@ -113,9 +106,7 @@
 
         let columns;
 
-        if (width >= 1200) {
-          columns = 5;
-        } else if (width >= 768) {
+        if (width >= 768) {
           columns = 3;
         } else if (width >= 480) {
           columns = 2;
