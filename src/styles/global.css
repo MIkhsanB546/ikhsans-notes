@@ -337,7 +337,9 @@ a {
 
 /* Empty grid items */
 
-/* .terminal__posts .post--empty {} */
+.terminal__posts .post--empty {
+  cursor: default;
+}
 
 /* =========================
    Individual Post
