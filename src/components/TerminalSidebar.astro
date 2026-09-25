@@ -1,0 +1,23 @@
+---
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+
+const homeHref = Astro.site
+  ? new URL(base, Astro.site).pathname
+  : base;
+---
+
+<aside class="terminal terminal--aside">
+  <div class="terminal__header">
+    <div class="terminal__title">Navigation</div>
+    <div></div>
+    <div class="terminal__tools">O</div>
+  </div>
+
+  <div class="terminal__body">
+    <nav class="aside__nav">
+      <a href={homeHref}>← Back to posts</a>
+    </nav>
+  </div>
+</aside>

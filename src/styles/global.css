@@ -1,0 +1,532 @@
+:root {
+  /* =========================
+     Font size
+     ========================= */
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+
+  /* =========================
+     Border
+     ========================= */
+
+  --border-size: 2px;
+  --border-style: solid;
+
+  /* =========================
+     Catppuccin Mocha
+     ========================= */
+
+  /* Accent */
+  --rosewater: #f5e0dc;
+  --flamingo: #f2cdcd;
+  --pink: #f5c2e7;
+  --mauve: #cba6f7;
+
+  --red: #f38ba8;
+  --maroon: #eba0ac;
+  --peach: #fab387;
+  --yellow: #f9e2af;
+
+  --green: #a6e3a1;
+  --teal: #94e2d5;
+  --sky: #89dceb;
+  --sapphire: #74c7ec;
+
+  --blue: #89b4fa;
+  --lavender: #b4befe;
+
+  /* Text */
+  --text: #cdd6f4;
+  --subtext-1: #bac2de;
+  --subtext-0: #a6adc8;
+
+  /* Overlay */
+  --overlay-2: #9399b2;
+  --overlay-1: #7f849c;
+  --overlay-0: #6c7086;
+
+  /* Surface */
+  --surface-2: #585b70;
+  --surface-1: #45475a;
+  --surface-0: #313244;
+
+  /* Background */
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+}
+
+/* =========================
+   Reset
+   ========================= */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   Base
+   ========================= */
+
+body {
+  font-family: monospace, "Courier New", Courier;
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+
+  background-color: var(--crust);
+  background-image: radial-gradient(var(--surface-0) 1px, var(--crust) 1px);
+  background-size: 16px 16px;
+
+  color: var(--text);
+
+  overflow: hidden;
+}
+
+a {
+  color: var(--text);
+}
+
+/* =========================
+   Container
+   ========================= */
+
+.container {
+  padding: 12px;
+}
+
+/* =========================
+   Page Layout
+   ========================= */
+
+.layout {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 12px;
+
+  align-items: start;
+}
+
+/* =========================
+   Terminal
+   ========================= */
+
+.terminal {
+  background-color: var(--base);
+  position: relative;
+  border: var(--border-size) var(--border-style) var(--lavender);
+  height: calc(100vh - 24px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   Terminal Header
+   ========================= */
+
+.terminal__header {
+  /* padding: 8px 16px; */
+
+  border-bottom: var(--border-size) var(--border-style) var(--lavender);
+
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.terminal__title {
+  padding: 8px 16px;
+  font-size: var(--text-lg);
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: var(--lavender);
+  border-right: var(--border-size) var(--border-style) var(--lavender);
+}
+
+.terminal__title:hover {
+  color: var(--base);
+  background-color: var(--lavender);
+}
+
+.terminal__tools {
+  padding: 8px 16px;
+}
+
+/* =========================
+   Terminal Description
+   ========================= */
+
+.terminal__description {
+  padding: 12px 48px;
+
+  border-bottom: var(--border-size) var(--border-style) var(--lavender);
+
+  color: var(--lavender);
+
+  display: flex;
+  align-items: center;
+}
+
+.terminal__description-logo {
+  width: auto;
+  height: 156px;
+  margin-right: 48px;
+  /* color: var(--lavender); */
+}
+
+.terminal__description-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal__description-title {
+  font-size: var(--text-4xl);
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.terminal__description-subtitle {
+  font-size: var(--text-sm);
+  color: var(--subtext-0);
+}
+
+/* =========================
+   Terminal Body
+   ========================= */
+
+.terminal__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background-image: radial-gradient(var(--surface-0) 1px, var(--base) 1px);
+  background-size: 16px 16px;
+}
+
+/* =========================
+   Aside Terminal
+   ========================= */
+
+.terminal--aside {
+  height: calc(100vh - 24px);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal--aside .terminal__header {
+  /* padding: 8px 12px; */
+}
+
+.terminal--aside .terminal__title {
+  font-size: var(--text-base);
+}
+
+.terminal--aside .terminal__body {
+  overflow-y: auto;
+}
+
+.aside__nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.aside__nav a {
+  display: block;
+
+  padding: 10px 12px;
+
+  color: var(--text);
+  text-decoration: none;
+
+  border-bottom: 1px var(--border-style) var(--surface-1);
+}
+
+.aside__nav a:hover {
+  background-color: var(--lavender);
+  color: var(--base);
+}
+
+.aside__nav a:active {
+  background-color: var(--base);
+  color: var(--lavender);
+}
+
+.aside__nav a:disabled {
+  background-color: var(--overlay-0);
+}
+
+/* =========================
+   Post Grid
+   ========================= */
+
+.terminal__posts {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  background-color: var(--lavender);
+  gap: 2px;
+
+  border-bottom: var(--border-size) var(--border-style) var(--lavender);
+}
+
+/* =========================
+   Post Card
+   ========================= */
+
+.terminal__posts .post__item {
+  background-color: var(--base);
+  color: var(--lavender);
+
+  text-decoration: none;
+  padding: 24px;
+
+  cursor: pointer;
+}
+
+.terminal__posts .post__item .post__title {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.terminal__posts .post__item .post__description {
+  font-size: var(--text-xs);
+  color: var(--subtext-0);
+}
+
+/* =========================
+   Post Card States
+   ========================= */
+
+.terminal__posts .post__item:hover {
+  background-color: var(--lavender);
+  color: var(--base);
+}
+
+.terminal__posts .post__item:hover .post__description {
+  color: var(--surface-0);
+}
+
+.terminal__posts .post__item:active {
+  background-color: var(--base);
+  color: var(--lavender);
+}
+
+.terminal__posts .post__item:active .post__description {
+  color: var(--lavender);
+}
+
+/* Empty grid items */
+
+/* .terminal__posts .post--empty {} */
+
+/* =========================
+   Individual Post
+   ========================= */
+
+.post {
+  padding: 56px;
+}
+
+.post .post__header {
+  border-bottom: 1px var(--border-style) var(--lavender);
+
+  padding-bottom: 8px;
+  margin-bottom: 24px;
+}
+
+.post .post__header .post__title {
+  margin-bottom: 12px;
+}
+
+.post .post__header .post__meta {
+  color: var(--subtext-0);
+  font-size: var(--text-sm);
+}
+
+.post .post__content {
+  line-height: 2;
+}
+
+.post .post__content table {
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+.post .post__content table,
+th,
+td {
+  border: 1px solid var(--lavender);
+  font-size: var(--text-sm);
+}
+
+.post .post__content th,
+td {
+  padding: 8px;
+  vertical-align: top;
+}
+
+/* =========================
+   Responsive Grid
+   ========================= */
+
+.mouse-guide {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.7;
+}
+
+.mouse-guide--horizontal {
+  left: 0;
+  width: 100%;
+  height: 1px;
+  top: 0;
+
+  background: repeating-linear-gradient(
+    to right,
+    var(--lavender) 0 1px,
+    transparent 2px 4px
+  );
+}
+
+.mouse-guide--vertical {
+  top: 0;
+  width: 1px;
+  height: 100%;
+  left: 0;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--lavender) 0 1px,
+    transparent 2px 4px
+  );
+}
+
+/* =========================
+   Responsive Grid
+   ========================= */
+
+/* Mobile: 1 column */
+.terminal__posts {
+  grid-template-columns: 1fr;
+}
+
+/* Small devices: 2 columns */
+@media (min-width: 480px) {
+  .terminal__posts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop / tablet: 3 columns */
+@media (min-width: 768px) {
+  .terminal__posts {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Large desktop: 5 columns */
+/* @media (min-width: 1200px) {
+  .terminal__posts {
+    grid-template-columns: repeat(5, 1fr);
+  }
+} */
+
+/* =========================
+   Mobile Layout
+   ========================= */
+
+@media (max-width: 767px) {
+  /*
+   * Allow the page itself to scroll
+   * so the aside can appear below
+   * the main terminal.
+   */
+  body {
+    overflow: auto;
+  }
+
+  .container {
+    padding: 8px;
+  }
+
+  /*
+   * Change main + aside from
+   * side-by-side to stacked.
+   */
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  /*
+   * Main terminal remains a
+   * viewport-height terminal.
+   */
+  .layout > .terminal {
+    height: calc(100vh - 16px);
+  }
+
+  /*
+   * Aside goes underneath the
+   * main terminal.
+   */
+  .terminal--aside {
+    height: auto;
+    max-height: 320px;
+  }
+
+  .terminal--aside .terminal__body {
+    overflow-y: auto;
+  }
+
+  /*
+   * Smaller post padding.
+   */
+  .post {
+    padding: 24px;
+  }
+}
+
+/* =========================
+   Small Mobile
+   ========================= */
+
+@media (max-width: 480px) {
+  .terminal__header {
+    padding: 6px 10px;
+  }
+
+  .terminal__title {
+    font-size: var(--text-base);
+  }
+
+  .terminal__logo {
+    width: 28px;
+    height: 28px;
+  }
+
+  .post {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const base = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const postHref = `${base}posts/${post.id}/`;
+---
+
+<a href={postHref} class="post__item">
+  <div class="post__title">{post.data.title}</div>
+  <div class="post__description">{post.data.description}</div>
+</a>

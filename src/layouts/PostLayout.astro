@@ -1,0 +1,32 @@
+---
+import Layout from "./Layout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+}
+
+const { title, description, pubDate } = Astro.props;
+const formattedDate = new Intl.DateTimeFormat("id-ID", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
+}).format(pubDate);
+---
+
+<Layout title={`${title} — Ikhsan's Notes`} description={description}>
+  <main class="terminal__body">
+    <div class="terminal__back"></div>
+    <article class="post">
+      <header class="post__header">
+        <h1 class="post__title">{title}</h1>
+        <div class="post__meta">{formattedDate}</div>
+      </header>
+      <div class="post__content">
+        <slot />
+      </div>
+    </article>
+  </main>
+</Layout>
