@@ -32,13 +32,18 @@
           <header class="terminal__header">
             <a href="index.html" class="terminal__title">
               <img class="terminal__logo" src="img/icon.svg" alt="MTB logo" />
-              Ikhsan's Notes</a
+              <span class="text-scramble" data-scramble-speed="70"
+                >Ikhsan's Notes</span
+              ></a
             >
             <div></div>
             <div class="terminal__tool">O</div>
           </header>
           <!-- site description -->
-          <div class="terminal__description">
+          <div
+            class="terminal__description text-scramble"
+            data-scramble-speed="15"
+          >
             Blog pribadi tentang pemrograman, proyek, kuliah, Linux, dan hal-hal
             yang sedang saya pelajari.
           </div>
@@ -47,8 +52,13 @@
             <div class="terminal__posts">
               <!-- post lists -->
               <a href="post.html" class="post__item">
-                <div class="post__title">Jenis-jenis jaringan komputer</div>
-                <div class="post__description">
+                <div class="post__title text-scramble" data-scramble-speed="50">
+                  Jenis-jenis jaringan komputer
+                </div>
+                <div
+                  class="post__description text-scramble"
+                  data-scramble-speed="25"
+                >
                   Penjelasan tentang LAN, MAN, WAN, dan Internet
                 </div>
               </a>
@@ -91,6 +101,7 @@
     <div class="mouse-guide mouse-guide--horizontal"></div>
     <div class="mouse-guide mouse-guide--vertical"></div>
 
+    <!-- Terminal fill empty post -->
     <script>
       const grid = document.querySelector(".terminal__posts");
       const posts = [...grid.querySelectorAll(".post__item:not(.post--empty)")];
@@ -129,6 +140,7 @@
       window.addEventListener("resize", fillGrid);
     </script>
 
+    <!-- Mouse Guide -->
     <script>
       const horizontalGuide = document.querySelector(
         ".mouse-guide--horizontal",
@@ -140,6 +152,53 @@
         horizontalGuide.style.top = `${event.clientY}px`;
         verticalGuide.style.left = `${event.clientX}px`;
       });
+    </script>
+
+    <!-- Text scramble -->
+    <script>
+      const scrambleCharacters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+
+      function scrambleText(element) {
+        const finalText = element.textContent;
+        const settleDelay = Number(element.dataset.scrambleSpeed) || 70;
+
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          return;
+        }
+
+        let currentIndex = 0;
+
+        function randomCharacter() {
+          return scrambleCharacters[
+            Math.floor(Math.random() * scrambleCharacters.length)
+          ];
+        }
+
+        function animate() {
+          element.textContent = finalText
+            .split("")
+            .map((char, index) => {
+              if (char === " ") return " ";
+              if (index < currentIndex) return char;
+
+              return randomCharacter();
+            })
+            .join("");
+
+          currentIndex++;
+
+          if (currentIndex <= finalText.length) {
+            setTimeout(animate, settleDelay);
+          } else {
+            element.textContent = finalText;
+          }
+        }
+
+        animate();
+      }
+
+      document.querySelectorAll(".text-scramble").forEach(scrambleText);
     </script>
   </body>
 </html>

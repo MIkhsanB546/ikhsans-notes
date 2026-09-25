@@ -268,6 +268,8 @@
 
     <div class="mouse-guide mouse-guide--horizontal"></div>
     <div class="mouse-guide mouse-guide--vertical"></div>
+
+    <!-- Mouse Guide -->
     <script>
       const horizontalGuide = document.querySelector(
         ".mouse-guide--horizontal",
@@ -279,6 +281,53 @@
         horizontalGuide.style.top = `${event.clientY}px`;
         verticalGuide.style.left = `${event.clientX}px`;
       });
+    </script>
+
+    <!-- Text scramble -->
+    <script>
+      const scrambleCharacters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+
+      function scrambleText(element) {
+        const finalText = element.textContent;
+        const settleDelay = Number(element.dataset.scrambleSpeed) || 70;
+
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          return;
+        }
+
+        let currentIndex = 0;
+
+        function randomCharacter() {
+          return scrambleCharacters[
+            Math.floor(Math.random() * scrambleCharacters.length)
+          ];
+        }
+
+        function animate() {
+          element.textContent = finalText
+            .split("")
+            .map((char, index) => {
+              if (char === " ") return " ";
+              if (index < currentIndex) return char;
+
+              return randomCharacter();
+            })
+            .join("");
+
+          currentIndex++;
+
+          if (currentIndex <= finalText.length) {
+            setTimeout(animate, settleDelay);
+          } else {
+            element.textContent = finalText;
+          }
+        }
+
+        animate();
+      }
+
+      document.querySelectorAll(".text-scramble").forEach(scrambleText);
     </script>
   </body>
 </html>
