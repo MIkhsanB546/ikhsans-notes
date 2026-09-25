@@ -1,14 +1,14 @@
 {
-	"pid": 122279,
+	"pid": 122643,
 	"port": 4321,
 	"url": "http://localhost:4321",
 	"urls": {
 		"local": [
-			"http://localhost:4321/"
+			"http://localhost:4321/ikhsans-notes/"
 		],
 		"network": [],
 		"networkInterfaceNames": []
 	},
 	"background": false,
-	"startedAt": "2026-09-25T12:54:46.173Z"
+	"startedAt": "2026-09-25T12:55:36.525Z"
 }
