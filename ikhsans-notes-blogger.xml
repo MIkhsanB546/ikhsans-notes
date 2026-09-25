@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' lang='id' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+  <head>
+    <meta charset='UTF-8'/>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    <title><data:blog.pageTitle/></title>
+
+    <b:include data='blog' name='all-head-content'/>
+
+    <b:skin><![CDATA[
+/* =========================
+   Ikhsan's Notes — Blogger Theme
+   ========================= */
+
+:root {
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+
+  --border-size: 2px;
+  --border-style: solid;
+
+  --rosewater: #f5e0dc;
+  --flamingo: #f2cdcd;
+  --pink: #f5c2e7;
+  --mauve: #cba6f7;
+  --red: #f38ba8;
+  --maroon: #eba0ac;
+  --peach: #fab387;
+  --yellow: #f9e2af;
+  --green: #a6e3a1;
+  --teal: #94e2d5;
+  --sky: #89dceb;
+  --sapphire: #74c7ec;
+  --blue: #89b4fa;
+  --lavender: #b4befe;
+
+  --text: #cdd6f4;
+  --subtext-1: #bac2de;
+  --subtext-0: #a6adc8;
+  --overlay-2: #9399b2;
+  --overlay-1: #7f849c;
+  --overlay-0: #6c7086;
+  --surface-2: #585b70;
+  --surface-1: #45475a;
+  --surface-0: #313244;
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: monospace, "Courier New", Courier;
+  background-color: var(--crust);
+  background-image: radial-gradient(var(--surface-0) 1px, var(--crust) 1px);
+  background-size: 16px 16px;
+  color: var(--text);
+  overflow: hidden;
+}
+
+a {
+  color: var(--text);
+}
+
+.container {
+  padding: 12px;
+}
+
+.layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 12px;
+  align-items: start;
+}
+
+.terminal {
+  background-color: var(--base);
+  position: relative;
+  border: var(--border-size) var(--border-style) var(--lavender);
+  height: calc(100vh - 24px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal__header {
+  border-bottom: var(--border-size) var(--border-style) var(--lavender);
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.terminal__title {
+  padding: 8px 16px;
+  font-size: var(--text-lg);
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: var(--lavender);
+  border-right: var(--border-size) var(--border-style) var(--lavender);
+}
+
+.terminal__title:hover {
+  color: var(--base);
+  background-color: var(--lavender);
+}
+
+.terminal__tools {
+  padding: 8px 16px;
+}
+
+.terminal__description {
+  padding: 12px 48px;
+  border-bottom: var(--border-size) var(--border-style) var(--lavender);
+  color: var(--lavender);
+  display: flex;
+  align-items: center;
+}
+
+.terminal__description-logo {
+  width: auto;
+  height: 156px;
+  margin-right: 48px;
+}
+
+.terminal__description-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal__description-title {
+  font-size: var(--text-4xl);
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.terminal__description-subtitle {
+  font-size: var(--text-sm);
+  color: var(--subtext-0);
+}
+
+.terminal__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-image: radial-gradient(var(--surface-0) 1px, var(--base) 1px);
+  background-size: 16px 16px;
+}
+
+.terminal--aside {
+  height: calc(100vh - 24px);
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal--aside .terminal__title {
+  font-size: var(--text-base);
+}
+
+.terminal--aside .terminal__body {
+  overflow-y: auto;
+}
+
+.aside__nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.aside__nav a {
+  display: block;
+  padding: 10px 12px;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px var(--border-style) var(--surface-1);
+}
+
+.aside__nav a:hover {
+  background-color: var(--lavender);
+  color: var(--base);
+}
+
+.aside__nav a:active {
+  background-color: var(--base);
+  color: var(--lavender);
+}
+
+.terminal__posts {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: var(--lavender);
+  gap: 2px;
+  border-bottom: var(--border-size) var(--border-style) var(--lavender);
+}
+
+.terminal__posts .post__item {
+  background-color: var(--base);
+  color: var(--lavender);
+  text-decoration: none;
+  padding: 24px;
+  cursor: pointer;
+}
+
+.terminal__posts .post__item .post__title {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.terminal__posts .post__item .post__description {
+  font-size: var(--text-xs);
+  color: var(--subtext-0);
+}
+
+.terminal__posts .post__item:hover {
+  background-color: var(--lavender);
+  color: var(--base);
+}
+
+.terminal__posts .post__item:hover .post__description {
+  color: var(--surface-0);
+}
+
+.terminal__posts .post__item:active {
+  background-color: var(--base);
+  color: var(--lavender);
+}
+
+.terminal__posts .post__item:active .post__description {
+  color: var(--lavender);
+}
+
+.post {
+  padding: 56px;
+}
+
+.post .post__header {
+  border-bottom: 1px var(--border-style) var(--lavender);
+  padding-bottom: 8px;
+  margin-bottom: 24px;
+}
+
+.post .post__header .post__title {
+  margin-bottom: 12px;
+}
+
+.post .post__header .post__meta {
+  color: var(--subtext-0);
+  font-size: var(--text-sm);
+}
+
+.post .post__content {
+  line-height: 2;
+}
+
+.post .post__content table {
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+.post .post__content table,
+th,
+td {
+  border: 1px solid var(--lavender);
+  font-size: var(--text-sm);
+}
+
+.post .post__content th,
+.post .post__content td {
+  padding: 8px;
+  vertical-align: top;
+}
+
+.text-scramble {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.mouse-guide {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.7;
+}
+
+.mouse-guide--horizontal {
+  left: 0;
+  width: 100%;
+  height: 1px;
+  top: 0;
+  background: repeating-linear-gradient(
+    to right,
+    var(--lavender) 0 1px,
+    transparent 2px 4px
+  );
+}
+
+.mouse-guide--vertical {
+  top: 0;
+  width: 1px;
+  height: 100%;
+  left: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--lavender) 0 1px,
+    transparent 2px 4px
+  );
+}
+
+@media (min-width: 480px) {
+  .terminal__posts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .terminal__posts {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    overflow: auto;
+  }
+
+  .container {
+    padding: 8px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .layout > .terminal {
+    height: calc(100vh - 16px);
+  }
+
+  .terminal--aside {
+    height: auto;
+    max-height: 320px;
+  }
+
+  .terminal--aside .terminal__body {
+    overflow-y: auto;
+  }
+
+  .post {
+    padding: 24px;
+  }
+
+  .terminal__description {
+    padding: 12px 24px;
+  }
+
+  .terminal__description-logo {
+    height: 96px;
+    margin-right: 24px;
+  }
+
+  .terminal__description-title {
+    font-size: var(--text-2xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .terminal__header {
+    padding: 6px 10px;
+  }
+
+  .terminal__title {
+    padding: 6px 10px;
+    font-size: var(--text-base);
+  }
+
+  .post {
+    padding: 16px;
+  }
+
+  .terminal__description {
+    padding: 12px 16px;
+  }
+
+  .terminal__description-logo {
+    height: 64px;
+    margin-right: 16px;
+  }
+
+  .terminal__description-title {
+    font-size: var(--text-xl);
+  }
+
+  .terminal__description-subtitle {
+    font-size: var(--text-xs);
+  }
+}
+    ]]></b:skin>
+  </head>
+
+  <body>
+    <div class='container'>
+      <div class='layout'>
+
+        <div class='terminal'>
+          <header class='terminal__header'>
+            <a class='terminal__title' expr:href='data:blog.homepageUrl'>
+              <span class='text-scramble' data-scramble-speed='70'>Ikhsan's Notes</span>
+            </a>
+            <div></div>
+            <div class='terminal__tools'>O</div>
+          </header>
+
+          <b:if cond='data:blog.pageType == "index" or data:blog.pageType == "archive"'>
+            <div class='terminal__description'>
+              <svg class='terminal__description-logo' viewBox='55 20 190 225' xmlns='http://www.w3.org/2000/svg' aria-label='MTB logo'>
+                <g fill='currentColor'>
+                  <path d='M110 45 L95 54 L83 89 L69 69 L53 78 L53 191 L72 202 L68 104 L83 120 L94 99 L91 212 L111 224 Z'/>
+                  <path d='M149 23 L129 35 L129 53 L142 47 L142 222 L129 216 L129 234 L151 246 L170 235 L170 216 L157 222 L157 47 L170 53 L170 34 Z'/>
+                  <path d='M188 45 L189 224 L246 191 L246 147 L234 139 L246 132 L246 78 Z M205 73 L231 88 L231 122 L206 137 L204 136 L204 74 Z M219 149 L223 152 L228 154 L231 157 L231 181 L205 196 L204 195 L204 157 L207 154 L212 152 L214 150 Z' fill-rule='evenodd'/>
+                </g>
+              </svg>
+              <div class='terminal__description-text'>
+                <div class='terminal__description-title text-scramble' data-scramble-speed='70'>Ikhsan's Notes</div>
+                <div class='terminal__description-subtitle'>Blog pribadi tentang pemrograman, proyek, kuliah, Linux, dan hal-hal yang sedang saya pelajari.</div>
+              </div>
+            </div>
+          </b:if>
+
+          <main class='terminal__body'>
+            <b:section class='main' id='main' showaddelement='no'>
+              <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2'>
+                <b:includable id='main'>
+                  <b:if cond='data:blog.pageType == "item"'>
+                    <b:loop values='data:posts' var='post'>
+                      <article class='post'>
+                        <header class='post__header'>
+                          <h1 class='post__title'><data:post.title/></h1>
+                          <div class='post__meta'><data:post.timestamp/></div>
+                        </header>
+                        <div class='post__content'>
+                          <data:post.body/>
+                        </div>
+                      </article>
+                    </b:loop>
+                  <b:else/>
+                    <div class='terminal__posts'>
+                      <b:loop values='data:posts' var='post'>
+                        <a class='post__item' expr:href='data:post.url'>
+                          <div class='post__title'><data:post.title/></div>
+                          <div class='post__description'><data:post.snippet/></div>
+                        </a>
+                      </b:loop>
+                    </div>
+                  </b:if>
+                </b:includable>
+              </b:widget>
+            </b:section>
+          </main>
+        </div>
+
+        <aside class='terminal terminal--aside'>
+          <div class='terminal__header'>
+            <div class='terminal__title'>Navigation</div>
+            <div></div>
+            <div class='terminal__tools'>O</div>
+          </div>
+
+          <div class='terminal__body'>
+            <nav class='aside__nav'>
+              <a expr:href='data:blog.homepageUrl'>← Back to posts</a>
+            </nav>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+
+    <div class='mouse-guide mouse-guide--horizontal'></div>
+    <div class='mouse-guide mouse-guide--vertical'></div>
+
+    <script type='text/javascript'>
+//<![CDATA[
+(function () {
+  var horizontalGuide = document.querySelector('.mouse-guide--horizontal');
+  var verticalGuide = document.querySelector('.mouse-guide--vertical');
+
+  if (horizontalGuide && verticalGuide) {
+    window.addEventListener('mousemove', function (event) {
+      horizontalGuide.style.top = event.clientY + 'px';
+      verticalGuide.style.left = event.clientX + 'px';
+    });
+  }
+
+  var grid = document.querySelector('.terminal__posts');
+  if (grid) {
+    var posts = Array.prototype.slice.call(
+      grid.querySelectorAll('.post__item:not(.post--empty)')
+    );
+
+    function fillGrid() {
+      var emptyItems = grid.querySelectorAll('.post--empty');
+      Array.prototype.forEach.call(emptyItems, function (el) {
+        el.remove();
+      });
+
+      var width = window.innerWidth;
+      var columns = width >= 768 ? 3 : width >= 480 ? 2 : 1;
+      var remainder = posts.length % columns;
+
+      if (remainder !== 0) {
+        var emptyCount = columns - remainder;
+        for (var i = 0; i < emptyCount; i++) {
+          var empty = document.createElement('div');
+          empty.className = 'post__item post--empty';
+          grid.appendChild(empty);
+        }
+      }
+    }
+
+    fillGrid();
+    window.addEventListener('resize', fillGrid);
+  }
+
+  var scrambleCharacters =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+
+  function scrambleText(element) {
+    var finalText = element.textContent;
+    var settleDelay = Number(element.getAttribute('data-scramble-speed')) || 70;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    var currentIndex = 0;
+
+    function randomCharacter() {
+      return scrambleCharacters.charAt(
+        Math.floor(Math.random() * scrambleCharacters.length)
+      );
+    }
+
+    function animate() {
+      element.textContent = finalText
+        .split('')
+        .map(function (char, index) {
+          if (char === ' ') return ' ';
+          if (index < currentIndex) return char;
+          return randomCharacter();
+        })
+        .join('');
+
+      currentIndex++;
+
+      if (currentIndex <= finalText.length) {
+        window.setTimeout(animate, settleDelay);
+      } else {
+        element.textContent = finalText;
+      }
+    }
+
+    animate();
+  }
+
+  var scrambleElements = document.querySelectorAll('.text-scramble');
+  Array.prototype.forEach.call(scrambleElements, scrambleText);
+}());
+//]]>
+    </script>
+  </body>
+</html>
