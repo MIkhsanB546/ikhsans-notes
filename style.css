@@ -146,6 +146,15 @@ a {
   font-size: var(--text-lg);
   font-weight: bold;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: var(--lavender);
+}
+
+.terminal__logo {
+  width: 32px;
+  height: 32px;
+  margin-right: 4px;
 }
 
 /* =========================
@@ -235,7 +244,7 @@ a {
 
 .terminal__posts .post__item {
   background-color: var(--base);
-  color: var(--text);
+  color: var(--lavender);
 
   text-decoration: none;
   padding: 12px;
