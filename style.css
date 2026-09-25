@@ -160,8 +160,8 @@ a {
 }
 
 .terminal__logo {
-  width: 32px;
-  height: 32px;
+  width: auto;
+  height: 30px;
   margin-right: 8px;
 }
 
@@ -255,6 +255,8 @@ a {
 
   background-color: var(--lavender);
   gap: 2px;
+
+  border-bottom: var(--border-size) var(--border-style) var(--lavender);
 }
 
 /* =========================
