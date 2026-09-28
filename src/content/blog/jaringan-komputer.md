@@ -7,9 +7,11 @@ tags:
   - jaringan
 ---
 
-Nama : Muhammad Ikhsan Basuki
-NIM : 19240452
-Kelas : 19.5A.13
+Nama : Muhammad Ikhsan Basuki<br />
+NIM : 19240452<br />
+Kelas : 19.5A.13<br />
+
+<br />
 
 Dalam kehidupan sehari-hari, kita hampir selalu menggunakan jaringan komputer, baik saat mengakses internet melalui smartphone, mengirim file dari laptop ke komputer lain, maupun saat menggunakan Wi-Fi di rumah. Jaringan komputer memungkinkan berbagai perangkat untuk saling terhubung dan bertukar informasi.
 
