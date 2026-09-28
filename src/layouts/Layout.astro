@@ -1,7 +1,15 @@
 ---
 import TerminalHeader from "../components/TerminalHeader.astro";
 import TerminalSidebar from "../components/TerminalSidebar.astro";
+import SettingsTerminal from "../components/SettingsTerminal.astro";
 import "../styles/global.css";
+import {
+  ACCENT_IDS,
+  APPEARANCE_IDS,
+  DEFAULT_ACCENT,
+  DEFAULT_APPEARANCE,
+  STORAGE_KEYS,
+} from "../scripts/themes.js";
 
 interface Props {
   title?: string;
@@ -19,6 +27,34 @@ const base = import.meta.env.BASE_URL.endsWith("/")
   : `${import.meta.env.BASE_URL}/`;
 
 const asset = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
+
+/*
+ * Inline bootstrap: restores the saved accent + appearance
+ * before the first paint so the page never flashes the default
+ * theme. Kept tiny on purpose, the rest of the behaviour lives
+ * in src/scripts/theme.js. The config is serialized from
+ * src/scripts/themes.js so there is a single source of truth.
+ */
+const themeConfig = {
+  accents: ACCENT_IDS,
+  appearances: APPEARANCE_IDS,
+  keys: STORAGE_KEYS,
+  defaultAccent: DEFAULT_ACCENT,
+  defaultAppearance: DEFAULT_APPEARANCE,
+};
+
+const themeBoot = `(function(){
+var c=${JSON.stringify(themeConfig)},d=document.documentElement;
+try{
+var a=window.localStorage.getItem(c.keys.accent),m=window.localStorage.getItem(c.keys.appearance);
+if(c.accents.indexOf(a)<0)a=c.defaultAccent;
+if(c.appearances.indexOf(m)<0)m=c.defaultAppearance;
+d.dataset.accent=a;
+d.dataset.appearanceMode=m;
+d.dataset.appearance=m==="system"?(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):m;
+d.style.setProperty("--theme-accent","var(--"+a+")");
+}catch(e){}
+})();`;
 ---
 
 <!doctype html>
@@ -45,6 +81,7 @@ const asset = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
       href={asset("img/favicon_io/favicon-16x16.png")}
     />
     <link rel="manifest" href={asset("img/favicon_io/site.webmanifest")} />
+    <script is:inline set:html={themeBoot} />
     <title>{title}</title>
   </head>
   <body>
@@ -54,7 +91,10 @@ const asset = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
           <TerminalHeader />
           <slot />
         </div>
-        <TerminalSidebar />
+        <div class="sidebar">
+          <TerminalSidebar />
+          <SettingsTerminal />
+        </div>
       </div>
     </div>
 
@@ -63,6 +103,7 @@ const asset = (path: string) => `${base}${path.replace(/^\/+/, "")}`;
 
     <script>
       import "../scripts/terminal.js";
+      import "../scripts/theme.js";
     </script>
   </body>
 </html>

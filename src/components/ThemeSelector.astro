@@ -1,0 +1,48 @@
+---
+import {
+  ACCENT_THEMES,
+  APPEARANCE_MODES,
+  DEFAULT_ACCENT,
+  DEFAULT_APPEARANCE,
+} from "../scripts/themes.js";
+---
+
+<div class="settings">
+  <div class="settings__control">
+    <label class="terminal__control-label" for="theme-accent">Theme</label>
+    <select
+      class="terminal__control-select"
+      id="theme-accent"
+      name="theme-accent"
+      data-theme-control="accent"
+    >
+      {
+        ACCENT_THEMES.map(({ id, label }) => (
+          <option value={id} selected={id === DEFAULT_ACCENT}>
+            {label}
+          </option>
+        ))
+      }
+    </select>
+  </div>
+
+  <div class="settings__control">
+    <label class="terminal__control-label" for="theme-appearance">
+      Appearance
+    </label>
+    <select
+      class="terminal__control-select"
+      id="theme-appearance"
+      name="theme-appearance"
+      data-theme-control="appearance"
+    >
+      {
+        APPEARANCE_MODES.map(({ id, label }) => (
+          <option value={id} selected={id === DEFAULT_APPEARANCE}>
+            {label}
+          </option>
+        ))
+      }
+    </select>
+  </div>
+</div>
