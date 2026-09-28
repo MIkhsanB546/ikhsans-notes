@@ -705,8 +705,16 @@ a {
    ========================= */
 
 @media (max-width: 480px) {
-  .terminal__header {
-    padding: 6px 10px;
+  .terminal__description {
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 24px;
+  }
+
+  .terminal__description-logo {
+    width: 128px;
+    height: 128px;
+    margin: 24px 12px;
   }
 
   .terminal__title {
