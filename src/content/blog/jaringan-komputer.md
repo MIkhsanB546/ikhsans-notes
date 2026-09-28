@@ -7,6 +7,10 @@ tags:
   - jaringan
 ---
 
+Nama : Muhammad Ikhsan Basuki
+NIM : 19240452
+Kelas : 19.5A.13
+
 Dalam kehidupan sehari-hari, kita hampir selalu menggunakan jaringan komputer, baik saat mengakses internet melalui smartphone, mengirim file dari laptop ke komputer lain, maupun saat menggunakan Wi-Fi di rumah. Jaringan komputer memungkinkan berbagai perangkat untuk saling terhubung dan bertukar informasi.
 
 Secara sederhana, jaringan komputer adalah dua atau lebih perangkat yang saling terhubung, baik menggunakan kabel maupun secara nirkabel, untuk berkomunikasi dan berbagi data. Berdasarkan jangkauan wilayahnya, jaringan komputer dapat dibedakan menjadi beberapa jenis, yaitu PAN, LAN, MAN, dan WAN.
@@ -59,12 +63,12 @@ Salah satu contoh jaringan WAN yang paling dikenal adalah **Internet**. Internet
 
 Keempat jenis jaringan tersebut memiliki perbedaan utama pada luas wilayah yang dapat dijangkau. PAN memiliki jangkauan paling kecil, sedangkan WAN memiliki jangkauan paling luas.
 
-| Jenis | Nama | Jangkauan | Contoh |
-| --- | --- | --- | --- |
-| PAN | Personal Area Network | Beberapa meter | Bluetooth smartphone dan headphone |
-| LAN | Local Area Network | Rumah, sekolah, kantor, atau gedung | Jaringan komputer laboratorium |
-| MAN | Metropolitan Area Network | Satu kota atau kawasan metropolitan | Jaringan yang menghubungkan beberapa kantor dalam satu kota |
-| WAN | Wide Area Network | Antarkota, antarnegara, hingga antarbenua | Internet |
+| Jenis | Nama                      | Jangkauan                                 | Contoh                                                      |
+| ----- | ------------------------- | ----------------------------------------- | ----------------------------------------------------------- |
+| PAN   | Personal Area Network     | Beberapa meter                            | Bluetooth smartphone dan headphone                          |
+| LAN   | Local Area Network        | Rumah, sekolah, kantor, atau gedung       | Jaringan komputer laboratorium                              |
+| MAN   | Metropolitan Area Network | Satu kota atau kawasan metropolitan       | Jaringan yang menghubungkan beberapa kantor dalam satu kota |
+| WAN   | Wide Area Network         | Antarkota, antarnegara, hingga antarbenua | Internet                                                    |
 
 <br />
 
