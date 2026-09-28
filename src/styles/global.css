@@ -729,4 +729,8 @@ a {
   .post {
     padding: 16px;
   }
+
+  .mouse-guide {
+    display: none;
+  }
 }
