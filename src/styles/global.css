@@ -369,22 +369,43 @@ a {
   line-height: 2;
 }
 
+/* =========================
+   Post Tables
+   ========================= */
+
+.post .post__content {
+  line-height: 2;
+  min-width: 0;
+}
+
+/*
+ * Make Markdown tables horizontally
+ * scrollable on small screens.
+ */
 .post .post__content table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+
   border-collapse: collapse;
   margin-top: 8px;
+
+  -webkit-overflow-scrolling: touch;
 }
 
-.post .post__content table,
-th,
-td {
+/*
+ * Keep table content readable instead
+ * of compressing every column.
+ */
+.post .post__content th,
+.post .post__content td {
   border: 1px solid var(--lavender);
   font-size: var(--text-sm);
-}
-
-.post .post__content th,
-td {
   padding: 8px;
   vertical-align: top;
+  white-space: nowrap;
 }
 
 /* =========================
