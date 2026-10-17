@@ -534,12 +534,8 @@ a {
   font-size: var(--text-sm);
 }
 
-.post .post__content {
-  line-height: 2;
-}
-
 /* =========================
-   Post Tables
+   Post Content
    ========================= */
 
 .post .post__content {
@@ -575,6 +571,17 @@ a {
   padding: 8px;
   vertical-align: top;
   white-space: nowrap;
+}
+
+.post .post__content ol,
+.post .post__content ul {
+  padding-left: 0;
+  margin-left: 0;
+  list-style-position: inside;
+}
+
+.post .post__content a:hover {
+  color: var(--theme-accent);
 }
 
 /* =========================
