@@ -543,10 +543,16 @@ a {
   min-width: 0;
 }
 
-/*
- * Make Markdown tables horizontally
- * scrollable on small screens.
- */
+.post .post__content p,
+.post .post__content li {
+  margin-bottom: 1em;
+}
+
+.post .post__content img {
+  max-width: 100%;
+  height: auto;
+}
+
 .post .post__content table {
   display: block;
   width: 100%;
@@ -560,10 +566,6 @@ a {
   -webkit-overflow-scrolling: touch;
 }
 
-/*
- * Keep table content readable instead
- * of compressing every column.
- */
 .post .post__content th,
 .post .post__content td {
   border: 1px solid var(--theme-accent);
